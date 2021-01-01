@@ -1,0 +1,94 @@
+{% extends "todo/base.html" %}
+{% block content %}
+<style>
+  #id_title{
+    display: block;
+        width: 50%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+  }
+  #id_memo{
+
+    display: block;
+        width: 50%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  #id_important{
+
+      display: block;
+          width: 50%;
+          padding: .375rem .75rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          color: #495057;
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1px solid #ced4da;
+          border-radius: .25rem;
+          transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+
+
+  }
+
+  label {
+      display: inline-block;
+      margin-bottom: .5rem;
+      font-size: 25px;
+  }
+
+
+
+
+
+
+</style>
+
+
+
+
+
+<div class='container' align='center'>
+<h2>{{ error }}</h2>
+<h2>{{ todowo.title }}</h2>
+<form method='POST' >
+   {% csrf_token %}
+{{ form.as_p }}
+<div class="btn-group" style='    transform: translateX(14px);'>
+<button type='submit'  class='btn btn-success'style='height: 38px;margin-right: 50px;width: 100px;'>Save</button
+  </div>
+</form>
+<form method='POST' action='{% url "completetodo" todowo.id %}'>
+   {% csrf_token %}
+   <div class="btn-group" style='    transform: translateX(14px);'>
+<button type='submit' class='btn btn-warning' style='margin-right: 50px;'>Complete </button>
+</div>
+</form>
+<form method='POST' action='{% url "deletetodo" todowo.id %}'>
+   {% csrf_token %}
+   <div class="btn-group" style='    transform: translateX(14px);'>
+<button type='submit'  class='btn btn-danger'style='margin-right: 50px;width: 100px;'>Delete </button>
+</div>
+</form>
+
+
+</div>
+{% endblock %}

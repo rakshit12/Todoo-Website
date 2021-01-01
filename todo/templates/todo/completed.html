@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+{% block content %}
+
+
+<div class='container' align='center'>
+<h2 style='transform: translateY(52px);font-size: 46px;'>Completed</h2>
+<div class="list-group" style='transform:translatey(131px)'>
+{% for Todo in todos %}
+<a href='{% url "updatetodo" Todo.id %}' class="list-group-item list-group-item-success list-group-item-action" style='width: 70%;margin: auto;'>
+{% if Todo.important %}
+
+<b> {% endif %}{{ Todo.title }}{% if Todo.important %}
+
+</b> {% endif %}
+{% if Todo.memo %}--{{ Todo.memo }}{% endif %}
+<b>--{{ Todo.Datecompleted|date:"j M Y g A"}}</b>
+</a>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

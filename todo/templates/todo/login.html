@@ -1,0 +1,59 @@
+
+{% extends "todo/base.html" %}
+{% block content %}
+<style>
+#id_password{
+  display: block;
+      width: 40%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+}
+#id_username{
+  display: block;
+      width: 40%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 25px;
+}
+
+
+</style>
+
+
+
+<div class="container" align='center' style="transform:translatey(115px)">
+<h1>Login</h1>
+<h2 style="color: #c50e0e;">{{ error }}</h2>
+
+
+<form method='POST' class="form-group p-100">
+
+   {% csrf_token %}
+{{ form.as_p }}
+<button class='btn btn-success'type='submit' style='width: 40%'>Login</button>
+</form>
+</div>
+{% endblock %}

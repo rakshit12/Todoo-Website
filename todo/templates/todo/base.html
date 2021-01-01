@@ -1,0 +1,94 @@
+
+
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<style>
+*{
+
+font-family: 'Shadows Into Light', cursive;
+
+}
+
+body{
+
+background: #5db0b0;
+
+}
+
+
+</style>
+
+
+
+
+
+
+<nav class="navbar navbar-expand bg-dark navbar-dark" style="height: 59px;padding-top: 22px;">
+<a class="navbar-brand" href="{% url 'home' %}"><img  class='d-block'src="{% static 'todoo/logo5.png' %}" style="width:80px;height:50px;    transform: translatey(-9px);"> </img></a>
+
+  <ul class="navbar-nav ml-auto text-white">
+{% if user.is_authenticated %}
+
+
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'currentuser' %}">Current</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'todoo' %}">Create</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'completed' %}">Completed</a>
+    </li>
+    <li class="nav-item active">
+    <form method='POST' action="{% url 'logoutuser' %}" >
+         {% csrf_token %}
+      <button type='submit' class='btn btn-success'>Logout</button></form>
+
+    </li>
+
+
+
+
+    {% else %}
+    <li class="nav-item active" style="transform: translateY(-7px);">
+      <a class="nav-link" href="{% url 'signupuser' %}">Sign Up</a>
+    </li>
+    <li class="nav-item active" style="transform: translateY(-7px);">
+      <a class="nav-link" href="{% url 'loginuser' %}">Login</a>
+    </li>
+    {% endif %}
+</ul>
+
+</nav>
+
+{% block content %}{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

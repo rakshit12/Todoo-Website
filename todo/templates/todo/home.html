@@ -1,0 +1,32 @@
+{% extends "todo/base.html" %}
+{% block content %}
+{% load static %}
+<style>
+.heading{
+  font-size:50px;
+  transition: font-size;
+  transition-duration:1s;
+  transform: translate(-50%, 192%)
+  font-size: 50px;
+}
+p {
+    font-weight: 500;
+    transform: translate(-12px, 143px);
+    color: #933d45;
+}
+
+span.heading:hover
+{
+  font-size: 60px;
+
+}
+</style>
+
+<div class='container-fluid' align='center' style='transform:translateY(227px)'>
+  <span class='heading'>Welcome</span>
+  <div class='row'>
+  <a href="{% url 'loginuser'  %}" style='margin:auto;'><button class='btn btn-success'type='submit' >Get Startted</button></a>
+  </div>
+  </div>
+
+{% endblock %}
